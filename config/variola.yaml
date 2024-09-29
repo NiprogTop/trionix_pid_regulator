@@ -1,0 +1,33 @@
+roll_pid:
+  kp: 0.0
+  ki: 0.0
+  kd: 0.0
+  clamp: 0.4
+  inverted: False
+  angular: True
+
+pitch_pid:
+  kp: 0.3
+  ki: 0.01
+  kd: 1.82
+  clamp: 0.4
+  inverted: True
+  angular: True
+
+heading_pid:
+  kp: 0.0
+  ki: 0.0
+  kd: 0.0
+  clamp: 0.4
+  inverted: True
+  angular: True
+
+depth_pid:
+  #kp: 0.0
+  kp: 6.0
+  #ki: 0.000001
+  ki: 0.001
+  kd: 5.0
+  clamp: 1.0
+  inverted: True
+  angular: False

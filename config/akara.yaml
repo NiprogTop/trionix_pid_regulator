@@ -1,0 +1,39 @@
+pitch_pid:
+  kp: 0.8
+  ki: 0.0
+  kd: 0.00
+  clamp: 0.4
+  angular: True
+  inverted: True
+
+surge_pid:
+  kp: 0.5
+  ki: 0.0
+  kd: 0.001
+  clamp: 0.1
+  angular: False
+  inverted: False
+
+sway_pid:
+  kp: 0.9
+  ki: 0.0
+  kd: 0.001
+  clamp: 0.6
+  angular: False
+  inverted: True
+
+heading_pid:
+  kp: 0.8
+  ki: 0.0
+  kd: 0.0
+  clamp: 0.4
+  angular: True
+  inverted: False
+
+depth_pid:
+  kp: 2.9
+  ki: 0.01
+  kd: 0.0
+  clamp: 0.6
+  angular: False
+  inverted: True

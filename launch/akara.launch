@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+  <include file="$(find pid_regulator)/launch/akara_firefly.launch" />
+  <include file="$(find smtusdb_teleop_tools)/launch/akara_autopilot.launch" />
+
+</launch>

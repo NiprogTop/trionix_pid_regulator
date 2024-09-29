@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+  <arg name="namespace" default="" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_imu_broadcaster"
+    args="0 0 0 1.57 0 0.035 $(arg namespace)/base_link $(arg namespace)/imu_link" />
+
+  <node pkg="tf2_ros" type="static_transform_publisher" name="base_link_to_pressure_pos_broadcaster"
+    args="0 0 0 0 0 0 $(arg namespace)/base_link $(arg namespace)/pressure_link" />
+
+  <node name="observer" pkg="pid_regulator" type="akara_observer.py" output="screen">
+    <param name="kpa_per_m" value="100.0" />
+    <param name="namespace" value="$(arg namespace)" />
+    <remap from="pressure" to="$(arg namespace)/nos/ms5837/pressure" />
+    <remap from="imu" to="$(arg namespace)/imu" />
+  </node>
+
+  <node name="autopilot" pkg="pid_regulator" type="akara_autopilot.py" output="screen">
+    <rosparam command="load" file="$(find pid_regulator)/config/akara.yaml" />
+
+    <param name="namespace" value="$(arg namespace)" />
+    <remap from="imu" to="$(arg namespace)/imu" />
+  </node>
+</launch>

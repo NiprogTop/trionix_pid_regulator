@@ -1,0 +1,7 @@
+<launch>
+  <node name="pid_regulator" pkg="pid_regulator" type="variola_pid.py" output="screen">
+    <rosparam command="load" file="$(find pid_regulator)/config/variola_sim.yaml" />
+    <remap from="pressure" to="/variola/pressure" />
+    <remap from="imu" to="/variola/imu" />
+  </node>
+</launch>
